@@ -1,4 +1,9 @@
-extends GridContainer
+extends TileMap
+
+var deck_size = 7
+var half_tile_size = get_cell_size() / 2
+
+onready var Draggable = preload("res://Draggable.tscn")
 
 var remained_letters = [
 	"A",
@@ -21,16 +26,15 @@ var remained_letters = [
 	"N",
 ]
 
-var MAX_DECK_SIZE = 7
-
 func _ready():
-	columns = MAX_DECK_SIZE
-	while get_child_count() < MAX_DECK_SIZE:
-		addRandomCell()
+	init_deck()
 
-func addRandomCell():
-	var cell = preload("res://Cell.tscn").instance()
-	remained_letters.shuffle()
-	cell.letter = remained_letters[0]
-	remained_letters.remove(0)
-	self.add_child(cell)
+func init_deck():
+	for x in range(deck_size):
+		var draggable = Draggable.instance()
+		remained_letters.shuffle()
+		draggable.init(remained_letters[0])
+		remained_letters.remove(0)
+		var pos = Vector2(x, 0)
+		draggable.position = map_to_world(pos) + half_tile_size
+		self.add_child(draggable)
