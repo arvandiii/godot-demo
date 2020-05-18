@@ -66,4 +66,6 @@ func process_deck():
 func revert_box(box):
 	var x = grid.find(box)
 	var pos = Vector2(x, 0)
+	box.get_parent().remove_child(box)
 	box.position = map_to_world(pos) + half_tile_size
+	add_child(box)

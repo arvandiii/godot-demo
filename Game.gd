@@ -9,10 +9,9 @@ func _ready():
 	pass
 
 func request_move(pos, box):
+	Board.remove_box(box)
 	if Board.is_valid_global_pos(pos):
-		print(pos)
 		Board.set_box_at_global_pos(box, pos)
-	#elif revert to deck
 	else:
 		Deck.revert_box(box)
 		
