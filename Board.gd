@@ -1,12 +1,14 @@
 extends TileMap
 
+# TODO: change box name to input box or another proper name
+
 var tile_size = get_cell_size()
 var half_tile_size = get_cell_size() / 2
 
 var grid_size = Vector2(5, 5)
 var grid = []
 
-onready var Box = preload("res://Box.tscn")
+onready var InputBox = preload("res://InputBox.tscn")
 
 func _ready():
 	init_board()
@@ -22,6 +24,7 @@ func init_board():
 			add_child(empty_box)
 	
 func create_box(letter):
-	var box = Box.instance() 
+	var box = InputBox.instance() 
 	box.init(letter)
 	return box
+

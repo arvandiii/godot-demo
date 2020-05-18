@@ -36,3 +36,8 @@ func _input(event):
 	if is_dragging and event is InputEventMouseMotion:
 		position += event.position - previous_mouse_position
 		previous_mouse_position = event.position
+
+# TODO: duplication
+
+func get_letter():
+	return letter

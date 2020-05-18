@@ -8,4 +8,4 @@
 [node name="Board" parent="." instance=ExtResource( 2 )]
 
 [node name="Deck" parent="." instance=ExtResource( 1 )]
-position = Vector2( 20.3584, 479.879 )
+position = Vector2( 0, 500 )

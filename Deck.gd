@@ -3,7 +3,7 @@ extends TileMap
 var deck_size = 7
 var half_tile_size = get_cell_size() / 2
 
-onready var Draggable = preload("res://Draggable.tscn")
+onready var Draggable = preload("res://DraggableBox.tscn")
 
 var remained_letters = [
 	"A",
